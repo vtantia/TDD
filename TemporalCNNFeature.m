@@ -12,7 +12,7 @@ for i = 1: length(filelist)
 end
 
 for i = 1:L-1
-    tmp = cat(4, video(:,:,(i-1)*2+1:i*2,2:end),video(:,:,(i-1)*2+1:i*2,end));
+    tmp = cat(4, video(:,:,(i-1)*2+1:i*2,2:end),video(:,:,(i-1)*2+1:i*2,end:end));
     video(:,:,i*2+1:i*2+2,:)  = tmp;
 end
 
