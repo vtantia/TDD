@@ -2,11 +2,11 @@ function [FCNNFeature_c4, FCNNFeature_c3] = TemporalCNNFeature(vid_name, net, NU
 
 L = 10;
 % Input video
-filelist =dir([vid_name,'*_x*.jpg']);
+filelist =dir([vid_name,'*x*.jpg']);
 video = zeros(NUM_HEIGHT,NUM_WIDTH,L*2,length(filelist));
 for i = 1: length(filelist)
-    flow_x = imread(sprintf('%s_%04d.jpg',[vid_name,'flow_x'],i));
-    flow_y = imread(sprintf('%s_%04d.jpg',[vid_name,'flow_y'],i));
+    flow_x = imread(sprintf('%s_%05d.jpg',[vid_name,'x'],i));
+    flow_y = imread(sprintf('%s_%05d.jpg',[vid_name,'y'],i));
     video(:,:,1,i) = imresize(flow_x,[NUM_HEIGHT,NUM_WIDTH],'bilinear');
     video(:,:,2,i) = imresize(flow_y,[NUM_HEIGHT,NUM_WIDTH],'bilinear');
 end
